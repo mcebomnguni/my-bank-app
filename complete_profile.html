@@ -13,39 +13,33 @@
             padding: 0;
             color: #333;
         }
-
         .navbar {
             background: linear-gradient(90deg, #0056b3, #003366);
             padding: 1rem;
             text-align: right;
         }
-
         .navbar a {
             color: #fff;
             margin-left: 20px;
             text-decoration: none;
             font-weight: 600;
         }
-
         .welcome-banner {
             background: #003366;
             color: white;
             padding: 40px 20px;
             text-align: center;
         }
-
         .welcome-banner h2 {
             margin: 0;
             font-size: 2.2rem;
             font-weight: bold;
         }
-
         .bank-slogan {
             font-size: 1rem;
             color: #ddd;
             font-style: italic;
         }
-
         .form-container {
             max-width: 600px;
             margin: 40px auto;
@@ -54,13 +48,11 @@
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
         }
-
         .form-container h3 {
             text-align: center;
             margin-bottom: 25px;
             font-weight: 600;
         }
-
         .btn-primary {
             background-color: #0056b3;
             border: none;
@@ -68,11 +60,9 @@
             padding: 10px;
             font-weight: 600;
         }
-
         .btn-primary:hover {
             background-color: #003366;
         }
-
         .footer {
             background: linear-gradient(90deg, #0056b3, #003366);
             color: white;
@@ -81,11 +71,9 @@
             font-size: 0.9rem;
             margin-top: 40px;
         }
-
         .form-label {
             font-weight: 500;
         }
-
         .alert-danger {
             display: none;
         }
@@ -150,23 +138,24 @@
     <!-- Redirect Logic -->
     <script>
         document.getElementById("profileForm").addEventListener("submit", function (e) {
-            e.preventDefault();
+            e.preventDefault(); // Prevent form submission to a server
 
             const fields = ["full_name", "date_of_birth", "citizenship", "identity_number", "phone_number", "pin"];
             let valid = true;
 
+            // Check if all fields are filled
             fields.forEach(id => {
                 const input = document.getElementById(id);
                 if (!input.value.trim()) {
-                    valid = false;
+                    valid = false; // If any field is empty, set valid to false
                 }
             });
 
             if (valid) {
-                // Redirect to dashboard on success
+                // If all fields are filled, redirect to dashboard
                 window.location.href = "dashboard.html";
             } else {
-                // Show error box
+                // Show error message if any field is empty
                 document.getElementById("errorBox").style.display = "block";
             }
         });
