@@ -1,0 +1,235 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CapstoneBank | Help & Support</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome CDN -->
+    <style>
+        body {
+            font-family: 'Urbanist', sans-serif;
+            background: url('https://www.toptal.com/designers/subtlepatterns/patterns/geometry2.png') repeat;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .navbar {
+            background: linear-gradient(90deg, #0056b3, #003366);
+            padding: 1rem;
+            text-align: right;
+        }
+
+        .navbar a {
+            color: #fff;
+            margin-left: 20px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .welcome-banner {
+            background: #003366;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .welcome-banner h2 {
+            margin: 0;
+            font-size: 2.2rem;
+            font-weight: bold;
+        }
+
+        .bank-slogan {
+            font-size: 1rem;
+            color: #ddd;
+            font-style: italic;
+        }
+
+        .content-container {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .help-section {
+            flex: 1 1 48%;
+            margin-bottom: 20px;
+        }
+
+        .map-section {
+            flex: 1 1 48%;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            height: 500px; 
+        }
+
+        h3 {
+            margin-top: 30px;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+
+        a {
+            color: #0056b3;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: linear-gradient(90deg, #0056b3, #003366);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+
+        .footer-social {
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            color: #0056b3; 
+            font-size: 2.5rem;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        .footer-social a:hover {
+            color: #003366; 
+        }
+
+        @media (max-width: 768px) {
+            .content-container {
+                flex-direction: column; 
+            }
+
+            .help-section,
+            .map-section {
+                flex: 1 1 100%; 
+                margin-bottom: 30px;
+            }
+        }
+
+        /* Align map height to the content section */
+        .map-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .map-container .help-section {
+            width: 48%;
+        }
+
+        .map-container .map-section {
+            width: 48%;
+            height: 500px; 
+        }
+
+        .map-container .map-section iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .content-container .help-section .footer-social {
+            margin-top: 30px; 
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="{% url 'dashboard' %}">Dashboard</a>
+        <a href="{% url 'services' %}">Our Services</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+
+    <!-- Welcome Banner -->
+    <div class="welcome-banner">
+        <h2>Help & Support</h2>
+        <p class="bank-slogan">CapstoneBank — Your Future, Our Mission</p>
+    </div>
+
+    <!-- Help & Support Content -->
+    <div class="content-container">
+        <div class="map-container">
+            <!-- Customer Service and Map section -->
+            <div class="help-section">
+                <div>
+                    <h3>Customer Service</h3>
+                    <p>Call us: <strong>0800-BANK-HELP</strong></p>
+                    <p>Live Chat: <a href="https://meet.google.com/abc-defg-hij" target="_blank" class="text-decoration-none">Join our Google Meet for Live Chat Support</a></p>
+                </div>
+
+                <div>
+                    <h3>Contact Information</h3>
+                    <p>Email: <a href="mailto:support@capstonebank.com">support@capstonebank.com</a></p>
+                    <p>Address: 123 Finance Street, Moneytown, 0001</p>
+                    <p>Country: <strong>United States</strong></p>
+                </div>
+
+                <div>
+                    <h3>Bank Registration</h3>
+                    <p>CapstoneBank is a registered financial institution under license #BANK2025001</p>
+                </div>
+
+                <div class="mt-4">
+                    <a href="{% url 'dashboard' %}">Back to Dashboard</a>
+                </div>
+
+                <!-- Social Media Links -->
+                <div class="footer-social">
+                    <h3>Connect with us:</h3>
+                    <div>
+                        <!-- Facebook Icon -->
+                        <a href="https://www.facebook.com/capstonebank" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <!-- WhatsApp Icon -->
+                        <a href="https://wa.me/1234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <!-- Instagram Icon -->
+                        <a href="https://www.instagram.com/capstonebank" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <!-- LinkedIn Icon -->
+                        <a href="https://www.linkedin.com/company/capstonebank" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="map-section">
+                <!-- Embed Google Map -->
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048.4896751913456!2d-74.00601508459417!3d40.71277607933116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a2422474aab%3A0x915cfec3f4cd35ac!2sBank%20Location!5e0!3m2!1sen!2sus!4v1670913123433!5m2!1sen!2sus"
+                    width="100%" height="100%" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        &copy; {{ now|date:"Y" }} CapstoneBank. All rights reserved.
+    </div>
+
+</body>
+</html>
