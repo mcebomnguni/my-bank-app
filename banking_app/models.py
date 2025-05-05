@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 class BankAccount(models.Model):
-     """
+    """
     Represents a user's bank account.
 
     Stores account number, current balance, and is linked one-to-one with a User.
@@ -14,6 +14,7 @@ class BankAccount(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.account_number}"
+
 
 
 class BankCard(models.Model):
