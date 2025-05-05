@@ -3,6 +3,11 @@ from django.contrib.auth.models import User
 
 
 class BankAccount(models.Model):
+    """
+    Represents a user's bank account.
+
+    Stores account number, current balance, and is linked one-to-one with a User.
+    """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     account_number = models.CharField(max_length=12, unique=True)
     balance = models.DecimalField(max_digits=12, decimal_places=2, default=0.00)
@@ -11,7 +16,13 @@ class BankAccount(models.Model):
         return f"{self.user.username} - {self.account_number}"
 
 
+
 class BankCard(models.Model):
+    """
+    Represents a physical or virtual bank card linked to a user's account.
+
+    Includes card type, number, CVV, expiry date, and secure PIN.
+    """
     CARD_TYPES = [
         ('Visa', 'Visa'),
         ('MasterCard', 'MasterCard'),
@@ -30,6 +41,11 @@ class BankCard(models.Model):
 
 
 class ServiceApplication(models.Model):
+    """
+    Represents a user application for a financial service (loan or insurance).
+
+    Tracks the application status and stores personal and financial details.
+    """
     SERVICE_CHOICES = [
         ('home_loan', 'Home Loan'),
         ('car_loan', 'Car Loan'),
@@ -51,6 +67,11 @@ class ServiceApplication(models.Model):
 
 
 class UserProfile(models.Model):
+    """
+    Stores additional user profile information required for banking services.
+
+    Includes full name, identity verification, contact details, and a PIN.
+    """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     full_name = models.CharField(max_length=100)
     date_of_birth = models.DateField()
@@ -64,6 +85,11 @@ class UserProfile(models.Model):
 
 
 class Card(models.Model):
+    """
+    Represents a general card record for display or reference purposes.
+
+    Stores basic card data like cardholder name, card number, CVV, and account number.
+    """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     cardholder_name = models.CharField(max_length=100)
     card_number = models.CharField(max_length=16)
@@ -75,6 +101,11 @@ class Card(models.Model):
 
 
 class Loan(models.Model):
+    """
+    Represents a loan application submitted by a user.
+
+    Includes loan type, amount, term in years, and application status.
+    """
     LOAN_TYPES = [
         ('home', 'Home Loan'),
         ('car', 'Car Loan'),
@@ -92,6 +123,11 @@ class Loan(models.Model):
 
 
 class Insurance(models.Model):
+    """
+    Represents an insurance application submitted by a user.
+
+    Includes insurance type, coverage amount, duration, and application status.
+    """
     INSURANCE_TYPES = [
         ('home', 'Home Insurance'),
         ('car', 'Car Insurance'),
@@ -109,6 +145,12 @@ class Insurance(models.Model):
 
 
 class Transaction(models.Model):
+    """
+    Represents a transaction made by a user.
+
+    Supports fund transfers and fund reservations, tracking source, destination, 
+    amount, and status.
+    """
     TRANSACTION_TYPES = [
         ('transfer', 'Transfer'),
         ('reserve', 'Reserve'),
