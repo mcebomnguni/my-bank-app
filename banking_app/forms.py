@@ -51,19 +51,6 @@ class UserProfileForm(forms.ModelForm):
         fields = ['full_name', 'phone_number', 'date_of_birth', 'citizenship', 'identity_number', 'pin']
 
 
-class SignUpForm(UserCreationForm):
-    """
-    A form for users to apply for a loan.
-
-    Collects loan type, requested loan amount, and loan term (in years).
-    """
-    email = forms.EmailField(required=True)
-
-    class Meta:
-        model = User
-        fields = ['username', 'email', 'password1', 'password2']
-
-
 class LoanForm(forms.ModelForm):
     """
     A form for users to apply for a loan.
