@@ -75,7 +75,7 @@ class LoanForm(forms.ModelForm):
 
 
 class InsuranceForm(forms.ModelForm):
-     """
+    """
     A form for users to apply for insurance.
 
     Captures the insurance type, coverage amount, and duration (in years).
