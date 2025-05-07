@@ -14,6 +14,7 @@ SECRET_KEY=m&7hh0fvdl9h(9zlew*v2pp50%g(5-g73^84u6dln(k#s@+lwz
 DEBUG=True
 
 ##  Build the Docker image
+
 ---bash
 1.docker build -t my-bank-app .
 2.docker run -d -p 8000:8000 --env-file .env my-bank-app
