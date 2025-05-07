@@ -21,6 +21,7 @@ class SignUpForm(UserCreationForm):
         fields = ('username', 'email', 'password1', 'password2')
 
 
+
 class ServiceApplicationForm(forms.ModelForm):
     """
     A form to apply for a general banking service (e.g., loans, insurance).
@@ -75,7 +76,7 @@ class LoanForm(forms.ModelForm):
 
 
 class InsuranceForm(forms.ModelForm):
-     """
+    """
     A form for users to apply for insurance.
 
     Captures the insurance type, coverage amount, and duration (in years).
