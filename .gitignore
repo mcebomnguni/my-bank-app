@@ -32,10 +32,3 @@ ENV/
 
 # Sphinx docs
 docs/_build/
-
-.env
-
-<<<<<<< HEAD
-
-=======
->>>>>>> container
