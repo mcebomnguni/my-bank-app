@@ -33,3 +33,5 @@ ENV/
 # Sphinx docs
 docs/_build/
 
+.env
+
