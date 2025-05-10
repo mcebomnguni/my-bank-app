@@ -14,19 +14,11 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 
-<<<<<<< HEAD
-# Load environment variables from .env file
-load_dotenv()
-
-SECRET_KEY = os.getenv('SECRET_KEY')
-DEBUG = os.getenv('DEBUG') == 'True'
-=======
 load_dotenv()  # Load environment variables from .env file
 
-SECRET_KEY = os.getenv("m&7hh0fvdl9h(9zlew*v2pp50%g(5-g73^84u6dln(k#s@+lwz")
+SECRET_KEY = os.getenv('SECRET_KEY', 'fallback-secret-key')
 DEBUG = os.getenv("DEBUG") == "True"  # Converting to boolean
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")  # Handling multiple allowed hosts
->>>>>>> container
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
